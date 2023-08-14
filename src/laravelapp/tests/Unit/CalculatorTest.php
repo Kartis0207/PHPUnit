@@ -31,6 +31,24 @@ class CalculatorTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
+    public function testMultiply_5と6の乗算結果を取得する()
+    {
+        $target = new Calculator();
+        $expected = 30;
+        $actual = $target->multiply(5, 6);
+
+        $this->assertSame($expected, $actual);
+    }
+
+    public function testDivide_3と2の除算結果を取得する()
+    {
+        $target = new Calculator();
+        $expected = 1.5;
+        $actual = $target->divide(3, 2);
+
+        $this->assertSame($expected, $actual);
+    }
+
     /**
      * public function Sum_3と2の加算結果を取得する
      *
@@ -68,6 +86,15 @@ class CalculatorTest extends TestCase
         $actual = $target->subtract(10, 3);
 
         // 期待値と実測値を検証する
+        $this->assertSame($expected, $actual);
+    }
+
+    public function testCalcTriangleArea_底辺が3で高さが5の三角形の面積を取得する()
+    {
+        $target = new Calculator();
+        $expected = 7.5;
+        $actual = $target->calcTriangleArea(3, 5);
+
         $this->assertSame($expected, $actual);
     }
 }
