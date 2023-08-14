@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Exception;
+
 class Calculator
 {
     // 乗算結果を返します
@@ -13,6 +15,10 @@ class Calculator
     // 除算結果を返します
     function divide($x, $y)
     {
+        // 0 で割る前に例外を発生させる
+        if ($y == 0) {
+            throw new Exception('0除算です');
+        }
         return $x / $y;
     }
 

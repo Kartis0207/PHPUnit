@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Calculator;
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -47,6 +48,15 @@ class CalculatorTest extends TestCase
         $actual = $target->divide(3, 2);
 
         $this->assertSame($expected, $actual);
+    }
+
+    public function testDivide_整数を0除算する()
+    {
+        $target = new Calculator();
+        // 発生する例外クラス →　期待結果
+        $this->expectException(Exception::class);
+        // 例外が発生する処理
+        $actual = $target->divide(10, 0);
     }
 
     /**
