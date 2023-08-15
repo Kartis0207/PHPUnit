@@ -45,6 +45,27 @@ class CalculatorTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
+    /**
+     * @dataProvider multiplyProvider
+     */
+    public function testMultiply_パラメータ化のテスト($expected, $x, $y)
+    {
+        $actual = $this->target->multiply($x, $y);
+        $this->assertSame($expected, $actual);
+    }
+
+    // データプロバイダメソッド
+    public function multiplyProvider(): array
+    {
+        // 'ラベル' => [期待値, 値1, 値2]
+        return [
+            '  0 = 1 * 0'  => [0, 1, 0],
+            '  9 = 3 * 3'  => [9, 3, 3],
+            ' 20 = 2 * 10' => [20, 2, 10],
+            '100 = 1 * 100' => [100, 1, 100]
+        ];
+    }
+
     public function testDivide_3と2の除算結果を取得する()
     {
         $expected = 1.5;
